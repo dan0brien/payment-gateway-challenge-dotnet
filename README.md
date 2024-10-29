@@ -15,4 +15,11 @@ docker-compose.yml - configures the bank simulator
 PaymentGateway.sln
 ```
 
-Feel free to change the structure of the solution, use a different test library etc.
+## Assumptions
+Only needs to work for a single merchant at this stage
+Transactions that make it to the bank simulator, but are rejected, receieve a rejected response rather than declined. 
+
+
+## Testing
+Manual Testing can be performed via swagger API, which can be accessed by building and running the project
+Unit tests are found 

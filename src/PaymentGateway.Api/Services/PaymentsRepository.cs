@@ -1,11 +1,10 @@
-﻿using PaymentGateway.Api.Models.Responses;
-
+﻿using PaymentGateway.Api.Models.Interfaces;
+using PaymentGateway.Api.Models.Responses;
 namespace PaymentGateway.Api.Services;
 
-public class PaymentsRepository
-{
+public class PaymentsRepository : IPaymentsRepository {
     public List<PostPaymentResponse> Payments = new();
-    
+
     public void Add(PostPaymentResponse payment)
     {
         Payments.Add(payment);
