@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PaymentGateway.Api.Models.Responses;
 using PaymentGateway.Api.Models.Requests;
-// using PaymentGateway.Api.Services;
 using System.Text;
 using System.Text.Json;
-// using Microsoft.AspNetCore.Http.HttpResults;
 using PaymentGateway.Api.Models.Interfaces;
-// using System.Runtime.CompilerServices;
 namespace PaymentGateway.Api.Controllers;
 
 [Route("api/[controller]")]
