@@ -1,6 +1,4 @@
 ﻿namespace PaymentGateway.Api.Models.Responses;
-using Api.Models.Interfaces;
-using System.Text.Json.Serialization;
 
 public class PostPaymentResponse
 {

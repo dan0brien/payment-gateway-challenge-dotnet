@@ -1,4 +1,6 @@
-﻿using PaymentGateway.Api.Models.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+
+using PaymentGateway.Api.Models.Interfaces;
 using PaymentGateway.Api.Models.Responses;
 namespace PaymentGateway.Api.Services;
 
@@ -10,8 +12,8 @@ public class PaymentsRepository : IPaymentsRepository {
         Payments.Add(payment);
     }
 
-    public PostPaymentResponse Get(Guid id)
-    {
+    public PostPaymentResponse? Get(Guid id)
+    {   
         return Payments.FirstOrDefault(p => p.Id == id);
     }
 }

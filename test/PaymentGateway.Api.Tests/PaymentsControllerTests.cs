@@ -31,7 +31,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task RetrievesAPaymentSuccessfully()
+    public async Task GetPayment_ValidId_Success()
     {
         // Arrange
         var paymentRequest = new PostPaymentRequest {
@@ -70,7 +70,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task Returns404IfPaymentNotFound()
+    public async Task GetPayment_UnknownId_Fail()
     {
         // Arrange
         ILogger<PaymentsController> logger = mockLogger.Object;
@@ -91,7 +91,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task POST_authorized()
+    public async Task PostPayment_ValidRequest_Success()
     {
         // Arrange
         
@@ -129,7 +129,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task POST_declined()
+    public async Task PostPayment_ValidRequest_Declined()
     {
         // Arrange
         
@@ -169,7 +169,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task POST_rejected()
+    public async Task PostPayment_InvalidRequest_Rejected()
     {
         // Arrange
         var handlerMock = new Mock<HttpMessageHandler>();
@@ -209,7 +209,7 @@ public class PaymentsControllerTests
 
     [Fact]
 
-    public async Task Banking_Service_Unavailable()
+    public async Task PostPayment_BankingServiceUnavailable_Rejected()
     {
         // Arrange
         var handlerMock = new Mock<HttpMessageHandler>();

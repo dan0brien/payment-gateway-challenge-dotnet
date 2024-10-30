@@ -2,17 +2,14 @@
 
 using System.Collections;
 using System.Globalization;
-// using System.Text.Json;
 using System.Text.Json.Serialization;
-
-// using Microsoft.AspNetCore.Mvc;
 
 public class PostPaymentRequest
 {
     public long CardNumber { get; set; }
     public int ExpiryMonth { get; set; }
     public int ExpiryYear { get; set; }
-    public string Currency { get; set; }
+    public required string Currency { get; set; }
     public int Amount { get; set; }
     public int Cvv { get; set; }
 }
@@ -36,11 +33,6 @@ public class PostPaymentRequestJson
         if (!IsFutureDate(expiryDate)){
             throw new ArgumentException("The card's expiry date must be in the future.");
         }
-        // @DTO move this elsewhere so we don't create it every time
-        var supportedCurrencies = new ArrayList()
-        {
-            "GBP", "EUR", "USD"
-        };
         if (!supportedCurrencies.Contains(currency) ){
             throw new ArgumentException("That currency is not supported, supported currencies include", string.Join(", ", supportedCurrencies));
         }
@@ -53,6 +45,9 @@ public class PostPaymentRequestJson
         Amount = amount;
         Cvv = cvv;
     }
+
+    public static List<string> supportedCurrencies = ["GBP", "EUR", "USD"];
+    
     public static bool IsFutureDate(string date)
         {
         DateTime parsedDate;
